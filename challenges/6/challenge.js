@@ -26,6 +26,27 @@
  * }
  */
 
-const extractSize = htmlTemplate => {}
+const extractSize = (htmlTemplate) => {
+  // valores padrões
+  let height = 0
+  let width = 0
+
+  // regex para buscar o termo procurado
+  const regexWidth = /width:( |)[0-9]+/gm
+  const regexHeight = /height:( |)[0-9]+/gm
+
+  // procurando width
+  const foundWidth = htmlTemplate.match(regexWidth)
+  if (foundWidth) {
+    width = parseInt(foundWidth[0].split(':')[1])
+  }
+
+  // procurando heigth
+  const foundHeight = htmlTemplate.match(regexHeight)
+  if (foundHeight) {
+    height = parseInt(foundHeight[0].split(':')[1])
+  }
+  return { width, height }
+}
 
 module.exports = extractSize
