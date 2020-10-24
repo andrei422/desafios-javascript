@@ -26,3 +26,29 @@ O desafio deve ser entregue no prazo máximo de **4 dias**, considerando que o p
 Caso tenha qualquer problema e não puder iniciar o desafio no prazo estabelecido, ou tiver dúvidas e dificuldades durante o processo, ou mesmo precisar de um feedback sobre sua avaliação, nos envie um e-mail e estaremos prontos para ajudar :)
 
 Bom teste!
+
+## Soluções dos desafios
+
+### Desafio 1
+
+Utilizei a função `reduce` para somar os argumentos da função.
+
+### Desafio 2
+
+Utilizei a função `reduce`, e cada interação do `reduce` foi somado ao acumulado, caso o número fosse primo.
+
+### Desafio 3
+
+Foi implementado uma função que realiza a decomposição de um número (com os dividores primos). Para resolver o problema, foi realizado a decomposição dos número a e b e depois analisado os divisores comuns. Com os divisores em comum, bastou multiplicar-los com a função `reduce`.
+
+### Desafio 4
+
+Foram mapeado os dados recebido em um `Map` e formatado a saída de acordo com o enunciado.
+
+### Desafio 5
+
+Foi atribuído o estado atual do erro como `false` e do loading como `true`. Realizado a requisição a api de forma assíncrona, e dependendo do resultado foi atríbuido o valor do dado recebido ou sinalizado a ocorrência de um erro. Ao final, foi atribuido loading como `false` para sinalizar que a informação chegou do servidor.
+
+### Desafio 6
+
+Foi realizado a busca do `width` e `height` utilizando regex. Caso não encontra-se, o valor padrão é `0`
