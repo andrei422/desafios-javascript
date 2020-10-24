@@ -52,6 +52,50 @@
  *  }
  */
 
-const normalizeData = unormalized => {}
+const normalizeData = (unormalized) => {
+  // usando desestruturação
+  const { id, user, reports } = unormalized
+
+  // mapea cada model
+  // user
+  const userMap = new Map()
+  userMap.set(user.id, user)
+
+  // reports
+  const reportsMap = new Map()
+  reports.forEach((report) => {
+    reportsMap.set(report.id, { ...report.result, id: report.id, user: user.id })
+  })
+
+  // results
+  const resultMap = new Map()
+  const result = {
+    id,
+    user: user.id,
+    reports: Array.from(reportsMap.values()).map((report) => report.id),
+  }
+  resultMap.set(id, result)
+
+  // formata a saída
+  const normalized = {
+    results: mapToDict(resultMap),
+    users: mapToDict(userMap),
+    reports: mapToDict(reportsMap),
+  }
+  return normalized
+}
+
+// transforma um mapa para um dicionário { key : value }
+const mapToDict = (map) => {
+  // cria um dicionario vazio
+  const dict = {}
+  // para cada item do mapa
+  map.forEach((value, key) => {
+    // atribui a key ao respectivo value
+    dict[key] = value
+  })
+  // retorna o dicionario
+  return dict
+}
 
 module.exports = normalizeData
