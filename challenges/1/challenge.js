@@ -9,6 +9,9 @@
  *
  */
 
-const sumArguments = arr => {}
+const sumArguments = (...args) => {
+  // usando função de programação funcional, retorna a soma do acumulado com o valor atual
+  return args.reduce((previous, current) => previous + current)
+}
 
 module.exports = sumArguments
