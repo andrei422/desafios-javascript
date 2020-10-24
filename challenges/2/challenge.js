@@ -18,6 +18,15 @@
 
 const isPrime = require('../../utils/isPrime')
 
-const sumPrimes = n => {}
+const sumPrimes = n => {
+  // cria um array de 0 até n
+  const array = [...Array(n).keys(), n]
 
+  // retorna a soma dos números primos
+  return array.reduce((previous, current) =>
+    // se for primo, retorna o acumulado mais o atual
+    // se não for primo, retorna o acumulado
+    isPrime(current) ? previous + current : previous,
+  )
+}
 module.exports = sumPrimes
